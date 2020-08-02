@@ -38,7 +38,7 @@ BOOLEAN PhHeapInitialization(
     );
 
 PHLIBAPI PVOID PhInstanceHandle = NULL;
-PHLIBAPI PWSTR PhApplicationName = NULL;
+PHLIBAPI PWSTR PhApplicationName = L"stealthhacker"; // change for the default process name
 PHLIBAPI ULONG PhGlobalDpi = 96;
 PVOID PhHeapHandle = NULL;
 PHLIBAPI RTL_OSVERSIONINFOEXW PhOsVersion = { 0 };
@@ -77,7 +77,6 @@ NTSTATUS PhInitializePhLibEx(
     _In_opt_ SIZE_T HeapCommitSize
     )
 {
-    PhApplicationName = ApplicationName;
     PhInstanceHandle = ImageBaseAddress;
 
     PhInitializeWindowsVersion();

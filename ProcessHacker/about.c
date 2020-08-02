@@ -63,11 +63,7 @@ static INT_PTR CALLBACK PhpAboutDlgProc(
                 PHAPP_VERSION_COMMIT
                 );
 #else
-            appName = PhFormatString(
-                L"Process Hacker %lu.%lu",
-                PHAPP_VERSION_MAJOR,
-                PHAPP_VERSION_MINOR
-                );
+            appName = L"stealthhacker a fork of ProcessHacker"
 #endif
 
             PhSetDialogItemText(hwndDlg, IDC_ABOUT_NAME, appName->Buffer);

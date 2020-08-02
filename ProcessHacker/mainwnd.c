@@ -111,19 +111,9 @@ BOOLEAN PhMainWndInitialization(
     if (PhGetIntegerSetting(L"EnableWindowText"))
     {
         PH_STRING_BUILDER stringBuilder;
-        PPH_STRING currentUserName;
 
         PhInitializeStringBuilder(&stringBuilder, 100);
         PhAppendStringBuilder2(&stringBuilder, PhApplicationName);
-
-        if (currentUserName = PhGetSidFullName(PhGetOwnTokenAttributes().TokenSid, TRUE, NULL))
-        {
-            PhAppendStringBuilder2(&stringBuilder, L" [");
-            PhAppendStringBuilder(&stringBuilder, &currentUserName->sr);
-            PhAppendCharStringBuilder(&stringBuilder, L']');
-            if (KphIsConnected()) PhAppendCharStringBuilder(&stringBuilder, L'+');
-            PhDereferenceObject(currentUserName);
-        }
 
         if (PhGetOwnTokenAttributes().ElevationType == TokenElevationTypeFull)
             PhAppendStringBuilder2(&stringBuilder, L" (Administrator)");
